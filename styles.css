@@ -1,4 +1,51 @@
+body {
+    background-color: rgb(254, 231, 248);
+}
+
 #dieResponse {
     height: 50px;
     width: 100px;
+}
+
+#playerDiv {
+    font-family: sans-serif;
+}
+
+#playerBtn {
+    width: 100px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+ 
+}
+
+#pig-svg {
+    width: 250px;
+    height: 250px;
+    background-image: url(svg/pig-svgrepo-com.svg);
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    fill: rgb(255, 0, 149);
+    
+    
+}
+
+.burger-svg {
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.red-burg {
+    fill: #c90000;
+}
+
+.purple-burg {
+    fill: #6a00c7;
+}
+
+.blue-burg {
+    fill: #0894ff;
 }

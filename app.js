@@ -105,6 +105,8 @@ class Pig {
       playerBtn.setAttribute("onClick", "window.location.reload()");
       btnContainer.style.justifyContent = "center";
       btnContainer.style.display = "flex";
+
+      pigSvg.style.display = "none";
     }
   }
 }

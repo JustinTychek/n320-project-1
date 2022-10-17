@@ -5,13 +5,16 @@ let currentPlayer = 1;
 let size = 0;
 
 //height and width of the pig svg
-let hw = 250;
+let heightWidth = 200;
 
 //retrieve ids from the html and make them variables
 let playerDiv = document.getElementById("playerDiv");
 let playerBtn = document.getElementById("playerBtn");
+let dieResponse = document.getElementById("dieResponse");
 let btnContainer = document.getElementById("btnContainer");
 let pigSvg = document.getElementById("pig-svg");
+let burgers = document.getElementsByClassName("burger");
+let info = document.getElementById("info");
 
 //class that decides which player is in control
 class Player {
@@ -50,7 +53,7 @@ class Randomizer {
 class Die extends Randomizer {
   constructor(element) {
     //colors that can be displayed when the dice is rolled
-    super(["#036ffc", "#fc031c", "#9500ff", "#000000"]);
+    super(["#059bd4", "#d32027", "#6e58a5", "#000000"]);
     this.outputElement = element;
   }
 
@@ -58,7 +61,17 @@ class Die extends Randomizer {
   roll() {
     let choice = this.randomize();
     //displays the color in a div
-    this.outputElement.style.backgroundColor = choice;
+    this.outputElement.innerHTML = "";
+    this.outputElement.style.backgroundColor = "transparent";
+    setTimeout(() => {
+      this.outputElement.style.backgroundColor = choice;
+    }, 300);
+
+    if (choice == "#000000") {
+      setTimeout(() => {
+        this.outputElement.innerHTML = "Skip!";
+      }, 300);
+    }
   }
 }
 
@@ -68,25 +81,24 @@ class Pig {
     randomize = new Randomizer();
     maxSize = randomize.randomNumb(15, 25);
     this.maxSize = maxSize;
-    console.log(maxSize);
   }
 
   //have the size of the pig increase whenever it is clicked
   increaseSize() {
     size++;
-    console.log(size);
 
-    hw = hw + 8;
-    pigSvg.style.height = hw + "px";
-    pigSvg.style.width = hw + "px";
+    heightWidth = heightWidth + 8;
+    pigSvg.style.height = heightWidth + "px";
+    pigSvg.style.width = heightWidth + "px";
 
     //once the size reaches the max size, the player in control loses
     if (size >= this.maxSize) {
-      playerDiv.style.fontSize = 50 + "px";
+      playerDiv.style.fontSize = 35 + "px";
       playerDiv.style.justifyContent = "center";
       playerDiv.style.display = "flex";
       playerDiv.innerHTML = "Player " + currentPlayer + " Loses!";
       playerDiv.style.width = 100 + "%";
+      playerDiv.style.marginTop = -63 + "px";
 
       //give the player the option to restart the game onces someone loses
       playerBtn.innerHTML = "Restart";
@@ -106,13 +118,17 @@ class Hamburger {
   }
 
   //flips the burger when clicked to reveal the number underneath
-  flip() {
+  flip(evt) {
     //change the html of the burger svg
-    let burger = document.getElementById("burger");
-    // this.element.innerHTML = this.numb;
-    // burger.style.backgroundImage = "";
-    burger.innerHTML = this.numb;
-    console.log("clicked burger");
+    let burger = document.querySelectorAll(".burger");
+
+    let currentBurg = evt.target;
+    currentBurg.style.backgroundSize = 0 + "px";
+    currentBurg.style.fontSize = 30 + "px";
+    currentBurg.style.borderRadius = 50 + "%";
+    currentBurg.style.paddingTop = 10 + "px";
+    currentBurg.style.backgroundColor = "#e0e0e0";
+    currentBurg.innerHTML = this.numb;
   }
 
   //sets the color of the hamburger
@@ -124,45 +140,87 @@ class Hamburger {
 //extention of the burger class that holds the high number values
 class HighBurg extends Hamburger {
   constructor(randomize, numb) {
-    super("#c90000");
+    super("#d32027");
     randomize = new Randomizer();
     //set the range of numbers to high values
     numb = randomize.randomNumb(4, 7);
     this.numb = numb;
-    console.log("high " + numb);
   }
 }
 
 //extention of the burger class that holds the medium number values
 class MedBurg extends Hamburger {
   constructor(randomize, numb) {
-    super("#6a00c7");
+    super("#6e58a5");
     randomize = new Randomizer();
     //set the range of numbers to medium values
     numb = randomize.randomNumb(3, 5);
     this.numb = numb;
-    console.log("med " + numb);
   }
 }
 
 //extention of the burger class that holds the low number values
 class LowBurg extends Hamburger {
   constructor(randomize, numb) {
-    super("#0894ff");
+    super("#059bd4");
     randomize = new Randomizer();
     //set the range of numbers to low values
     numb = randomize.randomNumb(1, 3);
     this.numb = numb;
-    console.log("low " + numb);
   }
 }
+
+//tweenlite animations
+
+//burger animations
+for (let i = 0; i < burgers.length; i++) {
+  TweenLite.from(burgers[i], {
+    duration: 0.8,
+    x: 150,
+    alpha: 0,
+    delay: i * 0.1,
+  });
+}
+
+//pig animation
+TweenLite.from(pigSvg, {
+  duration: 1.4,
+  y: 250,
+  alpha: 0,
+});
+
+//die and player info animation
+TweenLite.from(info, {
+  duration: 1.4,
+  y: -150,
+  alpha: 0,
+});
 
 //create objects from the classes
 let myDie = new Die(document.getElementById("dieResponse"));
 let myPlayer = new Player();
 let myPig = new Pig();
-let highBurg1 = new HighBurg();
-let medBurg1 = new MedBurg();
-let lowBurg1 = new LowBurg();
 
-// let highBurg1 = new HighBurg(document.getElementById("burger"));
+let highBurgs = [
+  new HighBurg(),
+  new HighBurg(),
+  new HighBurg(),
+  new HighBurg(),
+  new HighBurg(),
+];
+
+let medBurgs = [
+  new MedBurg(),
+  new MedBurg(),
+  new MedBurg(),
+  new MedBurg(),
+  new MedBurg(),
+];
+
+let lowBurgs = [
+  new LowBurg(),
+  new LowBurg(),
+  new LowBurg(),
+  new LowBurg(),
+  new LowBurg(),
+];

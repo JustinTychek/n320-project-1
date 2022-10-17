@@ -10,58 +10,69 @@
 </head>
 
 <body>
-    <!-- Die -->
-    <div id="dieResponse"></div>
-    <button onclick="myDie.roll()">Roll</button>
+    <div id="info">
+        <!-- Die -->
+        <div id="die">
+            <div id="dieResponse"></div>
+            <button onclick="myDie.roll()">Roll</button>
+        </div>
 
-    <br>
-    <br>
-    <br>
-
-    <!-- Player Turn -->
-    <div id="playerDiv">Player 1's turn</div>
-    <div id="btnContainer">
-        <button id="playerBtn" onclick="myPlayer.swapPlayer()">End Turn</button>
+        <!-- Player Turn -->
+        <div id="turn">
+            <div id="playerDiv">Player 1's turn</div>
+            <div id="btnContainer">
+                <button id="playerBtn" onclick="myPlayer.swapPlayer()">End Turn</button>
+            </div>
+        </div>
     </div>
     <br>
 
-    <!-- Burger svgs -->
-    <svg id="burger" onclick="highBurg1.flip()" class="burger-svg red-burg" version="1.1"
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 295 295" xmlns:xlink="http://www.w3.org/1999/xlink"
-        enable-background="new 0 0 295 295">
-        <g>
-            <path
-                d="M25,226.011v16.511c0,8.836,7.465,16.489,16.302,16.489h214.063c8.837,0,15.636-7.653,15.636-16.489v-16.511H25z" />
-            <path
-                d="m271.83,153.011c-3.635-66-57.634-117.022-123.496-117.022-65.863,0-119.863,51.021-123.498,117.022h246.994zm-198.497-50.99c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm42,33c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm33.248-58c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm32.752,58c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm50.25-41.25c0,4.557-3.693,8.25-8.25,8.25-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.694 8.25,8.25z" />
-            <path
-                d="m275.414,169.011h-0.081-254.825c-11.142,0-20.508,8.778-20.508,19.921v0.414c0,11.143 9.366,20.665 20.508,20.665h254.906c11.142,0 19.586-9.523 19.586-20.665v-0.414c0-11.143-8.444-19.921-19.586-19.921z" />
-        </g>
-    </svg>
-    <svg id="burger" onclick="medBurg1.flip()" class="burger-svg purple-burg" version="1.1"
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 295 295" xmlns:xlink="http://www.w3.org/1999/xlink"
-        enable-background="new 0 0 295 295">
-        <g>
-            <path
-                d="M25,226.011v16.511c0,8.836,7.465,16.489,16.302,16.489h214.063c8.837,0,15.636-7.653,15.636-16.489v-16.511H25z" />
-            <path
-                d="m271.83,153.011c-3.635-66-57.634-117.022-123.496-117.022-65.863,0-119.863,51.021-123.498,117.022h246.994zm-198.497-50.99c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm42,33c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm33.248-58c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm32.752,58c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm50.25-41.25c0,4.557-3.693,8.25-8.25,8.25-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.694 8.25,8.25z" />
-            <path
-                d="m275.414,169.011h-0.081-254.825c-11.142,0-20.508,8.778-20.508,19.921v0.414c0,11.143 9.366,20.665 20.508,20.665h254.906c11.142,0 19.586-9.523 19.586-20.665v-0.414c0-11.143-8.444-19.921-19.586-19.921z" />
-        </g>
-    </svg>
-    <svg id="burger" onclick="lowBurg1.flip()" class="burger-svg blue-burg" version="1.1"
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 295 295" xmlns:xlink="http://www.w3.org/1999/xlink"
-        enable-background="new 0 0 295 295">
-        <g>
-            <path
-                d="M25,226.011v16.511c0,8.836,7.465,16.489,16.302,16.489h214.063c8.837,0,15.636-7.653,15.636-16.489v-16.511H25z" />
-            <path
-                d="m271.83,153.011c-3.635-66-57.634-117.022-123.496-117.022-65.863,0-119.863,51.021-123.498,117.022h246.994zm-198.497-50.99c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm42,33c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm33.248-58c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm32.752,58c-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.693 8.25,8.25 0,4.557-3.693,8.25-8.25,8.25zm50.25-41.25c0,4.557-3.693,8.25-8.25,8.25-4.557,0-8.25-3.693-8.25-8.25 0-4.557 3.693-8.25 8.25-8.25 4.557,0 8.25,3.694 8.25,8.25z" />
-            <path
-                d="m275.414,169.011h-0.081-254.825c-11.142,0-20.508,8.778-20.508,19.921v0.414c0,11.143 9.366,20.665 20.508,20.665h254.906c11.142,0 19.586-9.523 19.586-20.665v-0.414c0-11.143-8.444-19.921-19.586-19.921z" />
-        </g>
-    </svg>
+    <!-- Burgers -->
+
+    <!-- Red burgers -->
+    <div class="burgers">
+        <div class="burger red-burg" onclick="highBurgs[0].flip(event)">
+        </div>
+        <div class="burger red-burg" onclick="highBurgs[1].flip(event)">
+        </div>
+        <div class="burger red-burg" onclick="highBurgs[2].flip(event)">
+        </div>
+        <div class="burger red-burg" onclick="highBurgs[3].flip(event)">
+        </div>
+        <div class="burger red-burg" onclick="highBurgs[4].flip(event)">
+        </div>
+    </div>
+
+    <!-- Purple Burgers -->
+    <div class="burgers">
+        <div class="burger purple-burg" onclick="medBurgs[0].flip(event)">
+        </div>
+        <div class="burger purple-burg" onclick="medBurgs[1].flip(event)">
+        </div>
+        <div class="burger purple-burg" onclick="medBurgs[2].flip(event)">
+        </div>
+        <div class="burger purple-burg" onclick="medBurgs[3].flip(event)">
+        </div>
+        <div class="burger purple-burg" onclick="medBurgs[4].flip(event)">
+        </div>
+    </div>
+
+
+
+    <!-- Blue Burgers -->
+    <div class="burgers">
+        <div class="burger blue-burg" onclick="lowBurgs[0].flip(event)">
+        </div>
+        <div class="burger blue-burg" onclick="lowBurgs[1].flip(event)">
+        </div>
+        <div class="burger blue-burg" onclick="lowBurgs[2].flip(event)">
+        </div>
+        <div class="burger blue-burg" onclick="lowBurgs[3].flip(event)">
+        </div>
+        <div class="burger blue-burg" onclick="lowBurgs[4].flip(event)">
+        </div>
+    </div>
+
 
     <br>
 
@@ -162,6 +173,7 @@
         </g>
     </svg>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="app.js"></script>
 </body>
 

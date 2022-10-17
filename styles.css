@@ -1,14 +1,49 @@
 body {
+    width: 100%;
     background-color: rgb(254, 231, 248);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+#info {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#die {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+#turn {
+    margin-top: 80px;
 }
 
 #dieResponse {
-    height: 50px;
+
+    margin-bottom: 10px;
+    height: 55px;
     width: 100px;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 25px;
+
+    color: #ffff;
+
 }
 
 #playerDiv {
     font-family: sans-serif;
+    text-align: center;
 }
 
 #playerBtn {
@@ -19,8 +54,8 @@ body {
 }
 
 #pig-svg {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background-image: url(svg/pig-svgrepo-com.svg);
     background-position: center;
     background-size: cover;
@@ -30,22 +65,37 @@ body {
     
 }
 
-.burger-svg {
-    width: 60px;
-    height: 60px;
+.burgers {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.burger {
+    width: 58px;
+    height: 45px;
     background-position: center;
     background-size: cover;
     cursor: pointer;
+    margin-right: 8px;
+    text-align: center;
+   
 }
 
 .red-burg {
-    fill: #c90000;
+    background-image: url(svg/burger-red.png);
 }
 
 .purple-burg {
-    fill: #6a00c7;
+    background-image: url(svg/burger-purple.png);
 }
 
 .blue-burg {
-    fill: #0894ff;
+    background-image: url(svg/burger-blue.png);
+}
+
+button {
+    border-radius: 50px;
+    border: solid 2px rgb(255, 0, 149);
+    background-color: transparent;
+    padding: 4px 0px;
 }
